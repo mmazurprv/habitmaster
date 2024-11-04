@@ -1,0 +1,23 @@
+-- public.tasks definition
+
+-- Drop table
+
+-- DROP TABLE public.tasks;
+
+CREATE TABLE public.tasks (
+	cif int4 DEFAULT 1 NOT NULL,
+	seriaid int4 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
+	"date" timestamp DEFAULT CURRENT_DATE NOT NULL,
+	exid int4 NOT NULL,
+	weight numeric(5, 2) DEFAULT 0.00 NOT NULL,
+	distance numeric(5, 2) NOT NULL,
+	repeats int2 NOT NULL,
+	timespan int4 NOT NULL,
+	subprojectno int4 NOT NULL,
+	goalno int2 NOT NULL,
+	goalpoints int4 NOT NULL,
+	goalvalue int4 NOT NULL,
+	remarks varchar(250) NULL,
+	quality int2 NOT NULL,
+	CONSTRAINT tasks_pkey PRIMARY KEY (seriaid)
+);
