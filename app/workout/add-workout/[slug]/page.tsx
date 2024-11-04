@@ -34,6 +34,9 @@ export default async function WorkoutPage({
           </div>
         </div>
 
+        {/* Hidden Input for exerciseId */}
+        <input type="hidden" name="exercise-id" value={exerciseId} />
+
         {/* Workout Date */}
         <div>
           <Label

@@ -5,6 +5,9 @@ import { revalidatePath } from "next/cache";
 import { client } from "../db/postgres";
 
 export default async function addWorkout(formData: FormData) {
+  // const workoutType = formData.get("workout-date")?.toString();
+  //
+  const exerciseId = formData.get("exercise-id")?.toString();
   const workoutDate = formData.get("workout-date")?.toString();
   const workoutTime = new Date().toLocaleTimeString("en-GB", { hour12: false });
 
@@ -16,7 +19,19 @@ export default async function addWorkout(formData: FormData) {
   // Combine workoutDate and workoutTime into a single timestamp string
   const workoutDateTime = `${workoutDate} ${workoutTime}`;
 
-  console.log(`Inserting workout: DateTime - ${workoutDateTime}`);
+  // Determine timespan based on exerciseId
+  let timespan;
+  if (exerciseId === "8001") {
+    timespan = 450;
+  } else if (exerciseId === "9001") {
+    timespan = 210;
+  } else {
+    timespan = 0;
+  }
+
+  console.log(
+    `Inserting new workout record ${exerciseId}: DateTime - ${workoutDateTime} Span - ${timespan} sec.`,
+  );
 
   try {
     await client`INSERT INTO tasks (
@@ -36,11 +51,11 @@ export default async function addWorkout(formData: FormData) {
     ) VALUES (
       '1',
       ${workoutDateTime},
-      '8001',
+      ${exerciseId},
       0,
       0,
       0,
-      '400',
+      ${timespan},
       0,
       0,
       0,
