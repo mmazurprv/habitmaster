@@ -1,7 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Dumbbell,
   Brain,
@@ -10,6 +6,7 @@ import {
   Home,
   Calendar,
 } from "lucide-react";
+import Menu from "@/components/menu";
 
 export default function HomePage() {
   const menuItems = [
@@ -27,19 +24,7 @@ export default function HomePage() {
         habitMaster
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {menuItems.map((item) => (
-          <Link key={item.name} href={item.href} passHref>
-            <Card className="group hover:bg-primary/5 transition-colors cursor-pointer">
-              <CardContent className="p-6 flex flex-col items-center justify-center h-32">
-                <item.icon
-                  size={48}
-                  className="mb-2 text-primary group-hover:text-primary/80 transition-colors"
-                />
-                <span className="text-sm font-medium">{item.name}</span>
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
+        <Menu menuItems={menuItems} />
       </div>
     </div>
   );
