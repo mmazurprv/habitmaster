@@ -20,7 +20,7 @@ export default function Menu({ menuItems }: { menuItems: MenuItem[] }) {
                 size={48}
                 className="mb-2 text-primary group-hover:text-primary/80 transition-colors"
               />
-              <span className="text-sm font-medium">{item.name}</span>
+              <span className="text-md font-semibold">{item.name}</span>
             </CardContent>
           </Card>
         </Link>

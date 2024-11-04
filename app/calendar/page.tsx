@@ -3,16 +3,14 @@ import { Home } from "lucide-react";
 import ExerciseList from "@/components/workouts/exercise-list";
 import { Exercise } from "@/lib/types";
 import Menu from "@/components/menu";
+import { DateNavigatorComponent } from "@/components/date-navigator";
 
-// Fetch exercises for the specified month
-async function getExercisesForMonth(month: string): Promise<Exercise[]> {
-  const [year, monthValue] = month.split("-"); // Expecting format "YYYY-MM"
-
+// Fetch exercises for the specified day
+async function getExercisesForDay(date: string): Promise<Exercise[]> {
   const exercises = await client`
     SELECT *
     FROM tasks
-    WHERE EXTRACT(YEAR FROM date) = ${year}::INTEGER
-      AND EXTRACT(MONTH FROM date) = ${monthValue}::INTEGER
+    WHERE date::DATE = ${date}::DATE
   `;
 
   return exercises.map((exercise) => ({
@@ -23,12 +21,13 @@ async function getExercisesForMonth(month: string): Promise<Exercise[]> {
 
 export default async function CalendarPage(props: {
   searchParams?: Promise<{
-    month?: string;
+    date?: string;
   }>;
 }) {
   const searchParams = await props.searchParams;
-  const month = searchParams?.month || new Date().toISOString().slice(0, 7); // Default to current month in "YYYY-MM" format
-  const exercises = await getExercisesForMonth(month);
+  const date = searchParams?.date || new Date().toISOString().split("T")[0]; // Default to today in "YYYY-MM-DD" format
+
+  const exercises = await getExercisesForDay(date);
 
   const menuItems = [
     // { name: "Calendar", icon: Calendar, href: "/calendar" },
@@ -40,6 +39,7 @@ export default async function CalendarPage(props: {
       <div className="flex flex-col gap-4">
         <h1 className="text-2xl font-bold mb-4 text-center">Today&apos;s Exercises</h1>
         <Menu menuItems={menuItems} />
+        <DateNavigatorComponent />
         <ExerciseList exercises={exercises} />
       </div>
     </div >
