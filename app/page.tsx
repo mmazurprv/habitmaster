@@ -23,9 +23,7 @@ export default function HomePage() {
       <h1 className="text-3xl font-bold text-center text-gray-300 mb-6">
         habitMaster
       </h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <Menu menuItems={menuItems} />
-      </div>
+      <Menu menuItems={menuItems} />
     </div>
   );
 }

@@ -11,7 +11,7 @@ type MenuItem = {
 
 export default function Menu({ menuItems }: { menuItems: MenuItem[] }) {
   return (
-    <>
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
       {menuItems.map((item) => (
         <Link key={item.name} href={item.href} passHref>
           <Card className="group hover:bg-primary/5 transition-colors cursor-pointer">
@@ -25,7 +25,7 @@ export default function Menu({ menuItems }: { menuItems: MenuItem[] }) {
           </Card>
         </Link>
       ))}
-    </>
+    </div>
   );
 };
 

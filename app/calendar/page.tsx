@@ -30,10 +30,7 @@ export default async function CalendarPage() {
   return (
     <div className="w-full max-w-3xl mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4 text-center">Today's Exercises</h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pb-5 mx-auto max-w-3xl">
-        <Menu menuItems={menuItems} />
-      </div>
-
+      <Menu menuItems={menuItems} />
       <ExerciseList exercises={exercises} />
     </div>
   );
