@@ -12,11 +12,7 @@ async function getExercisesForDay(date: string): Promise<Exercise[]> {
     FROM tasks
     WHERE date::DATE = ${date}::DATE
   `;
-
-  return exercises.map((exercise) => ({
-    ...exercise,
-    date: exercise.date.toISOString().split("T")[0], // Format date as YYYY-MM-DD
-  })) as Exercise[];
+  return exercises as unknown as Exercise[]; // Ensure the result is typed as Exercise[]
 }
 
 export default async function CalendarPage(props: {

@@ -21,7 +21,7 @@ export default function ExerciseList({ exercises }: { exercises: Exercise[] }) {
           </p>
 
           <p>
-            <strong>Date:</strong> {exercise.date}
+            <strong>Date:</strong> {new Date(exercise.date).toLocaleDateString('pl-PL').replace(/\//g, '.')}
           </p>
 
           <p>

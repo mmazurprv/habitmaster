@@ -1,7 +1,7 @@
 export type Exercise = {
   seriaid: string;
   exid: string;
-  date: string; // Assuming date is stored as a string, you could also use Date if it’s a Date object
+  date: Date;
   distance: number;
   repeats: number;
   goalvalue: number;
