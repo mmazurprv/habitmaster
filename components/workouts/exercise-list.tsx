@@ -1,6 +1,6 @@
-"use client";
+import { Exercise } from "@/lib/types";
 
-export default function ExerciseList({ exercises }) {
+export default function ExerciseList({ exercises }: { exercises: Exercise[] }) {
   if (exercises.length === 0) {
     return (
       <p className="text-center text-gray-500">

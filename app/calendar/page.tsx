@@ -1,12 +1,12 @@
 import { client } from "@/lib/db/postgres";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import ExerciseList from "../client-components/exercise-list";
-
-import { Home, Calendar } from "lucide-react";
+import { Home } from "lucide-react";
+import ExerciseList from "@/components/workouts/exercise-list";
+import { Exercise } from "@/lib/types";
 
 // Fetch today's exercises on the server
-async function getExercisesForToday() {
+async function getExercisesForToday(): Promise<Exercise[]> {
   const today = new Date().toISOString().split("T")[0]; // Format as YYYY-MM-DD
 
   const exercises = await client`
@@ -14,10 +14,11 @@ async function getExercisesForToday() {
     FROM tasks
     WHERE date::DATE = ${today}
   `;
+
   return exercises.map((exercise) => ({
     ...exercise,
     date: exercise.date.toISOString().split("T")[0], // Format date as YYYY-MM-DD
-  }));
+  })) as Exercise[]; // Ensure the result matches the Exercise type
 }
 
 export default async function CalendarPage() {
