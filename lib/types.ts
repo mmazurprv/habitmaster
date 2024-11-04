@@ -1,15 +1,16 @@
 export type Exercise = {
-  seriaid: string;
-  exid: string;
-  date: Date;
-  distance: number;
-  repeats: number;
-  goalvalue: number;
-  quality: string;
-  subprojectno: number;
-  timespan: number;
-  goalpoints: number;
-  remarks: string;
-  weight: number;
-  goalno: number;
+  seriaid: number; // int4
+  cif: number; // int4
+  date: Date; // timestamp, keep as Date
+  exid: number; // int4
+  weight?: number; // numeric(5,2), nullable, represents decimal
+  distance?: number; // numeric(5,2), nullable, represents decimal
+  repeats?: number; // int2, nullable
+  timespan?: number; // int4, nullable
+  subprojectno?: number; // int4, nullable
+  goalno?: number; // int2, nullable
+  goalpoints?: number; // int4, nullable
+  goalvalue?: number; // int4, nullable
+  remarks?: string; // varchar(250), nullable
+  quality?: number; // int2, nullable
 };

@@ -3,14 +3,11 @@ import { Exercise } from "@/lib/types";
 export default function ExerciseList({ exercises }: { exercises: Exercise[] }) {
   // Function to get exercise name based on exid
   const ExerciseTitle = (exid: number): string => {
-    switch (exid) {
-      case 8001:
-        return "Plank";
-      case 9001:
-        return "Leg stretch";
-      default:
-        return "Other";
-    }
+    const titles: { [key: number]: string } = {
+      8001: "Plank",
+      9001: "Leg stretch",
+    };
+    return titles[exid] || "Other";
   };
 
   if (exercises.length === 0) {
@@ -26,10 +23,10 @@ export default function ExerciseList({ exercises }: { exercises: Exercise[] }) {
       {exercises.map((exercise) => (
         <div key={exercise.seriaid} className="p-4 border rounded-lg shadow-sm">
           <h2 className="text-lg font-semibold">
-            {ExerciseTitle(exercise.exid)}
+            {ExerciseTitle(Number(exercise.exid))}
           </h2>
           <p>
-            <strong> Id:</strong> {exercise.seriaid}
+            <strong>Id:</strong> {exercise.seriaid}
           </p>
           <p>
             <strong>Date:</strong>{" "}
@@ -38,38 +35,37 @@ export default function ExerciseList({ exercises }: { exercises: Exercise[] }) {
               .replace(/\//g, ".")}
           </p>
 
-          {/* Conditional rendering based on values */}
-          {exercise.distance && exercise.distance !== "0.00" && (
+          {exercise.distance != null && exercise.distance > 0 && (
             <p>
               <strong>Distance:</strong> {exercise.distance} m
             </p>
           )}
-          {exercise.repeats && exercise.repeats !== 0 && (
+          {exercise.repeats != null && exercise.repeats > 0 && (
             <p>
               <strong>Repeats:</strong> {exercise.repeats} rpt
             </p>
           )}
-          {exercise.goalvalue && exercise.goalvalue !== 0 && (
+          {exercise.goalvalue != null && exercise.goalvalue > 0 && (
             <p>
               <strong>Goal Value:</strong> {exercise.goalvalue} goal
             </p>
           )}
-          {exercise.quality && exercise.quality !== 0 && (
+          {exercise.quality != null && exercise.quality > 0 && (
             <p>
               <strong>Quality:</strong> {exercise.quality} qty
             </p>
           )}
-          {exercise.subprojectno && exercise.subprojectno !== 0 && (
+          {exercise.subprojectno != null && exercise.subprojectno > 0 && (
             <p>
               <strong>Subproject No:</strong> {exercise.subprojectno} sub prj
             </p>
           )}
-          {exercise.timespan && exercise.timespan !== 0 && (
+          {exercise.timespan != null && exercise.timespan > 0 && (
             <p>
               <strong>Timespan:</strong> {exercise.timespan} sec
             </p>
           )}
-          {exercise.goalpoints && exercise.goalpoints !== 0 && (
+          {exercise.goalpoints != null && exercise.goalpoints > 0 && (
             <p>
               <strong>Goal Points:</strong> {exercise.goalpoints} points
             </p>
@@ -79,12 +75,12 @@ export default function ExerciseList({ exercises }: { exercises: Exercise[] }) {
               <strong>Remarks:</strong> {exercise.remarks}
             </p>
           )}
-          {exercise.weight && exercise.weight !== "0.00" && (
+          {exercise.weight != null && exercise.weight > 0 && (
             <p>
               <strong>Weight:</strong> {exercise.weight} kg
             </p>
           )}
-          {exercise.goalno && exercise.goalno !== 0 && (
+          {exercise.goalno != null && exercise.goalno > 0 && (
             <p>
               <strong>Goal No:</strong> {exercise.goalno} goal id
             </p>
