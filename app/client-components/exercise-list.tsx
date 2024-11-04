@@ -17,8 +17,13 @@ export default function ExerciseList({ exercises }) {
             Exercise ID: {exercise.exid}
           </h2>
           <p>
+            <strong>Id:</strong> {exercise.seriaid}
+          </p>
+
+          <p>
             <strong>Date:</strong> {exercise.date}
           </p>
+
           <p>
             <strong>Distance:</strong> {exercise.distance} m
           </p>
