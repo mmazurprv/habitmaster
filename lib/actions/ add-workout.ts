@@ -27,7 +27,7 @@ export default async function addWorkout(formData: FormData) {
     timespan = 210; // 3.5 min for stretching
   } else if (exerciseId === "9005") {
     timespan = 900; //15 min for meditation
-  } else if (exerciseId === "800") {
+  } else if (exerciseId === "9800") {
     timespan = 900; //15 min for english reading unit
   } else if (exerciseId === "9105") {
     timespan = 120; //2 min for meditation
