@@ -26,12 +26,12 @@ export default function WorkoutPage() {
       href: "/workout/add-workout/9005",
     },
     {
-      name: "Cold water",
+      name: "Cold",
       icon: ShowerHead,
       href: "/workout/add-workout/9105",
     },
     {
-      name: "English reading",
+      name: "Reading",
       icon: Languages,
       href: "/workout/add-workout/9800",
     },
