@@ -6,6 +6,7 @@ export default function ExerciseList({ exercises }: { exercises: Exercise[] }) {
     const titles: { [key: number]: string } = {
       8001: "Plank",
       9001: "Leg stretch",
+      9005: "Meditation",
     };
     return titles[exid] || "Other";
   };

@@ -13,6 +13,8 @@ async function getExercisesForDay(date: string): Promise<Exercise[]> {
     WHERE date::DATE = ${date}::DATE
   `;
   return exercises as unknown as Exercise[]; // Ensure the result is typed as Exercise[]
+  return exercises as unknown as Exercise[]; // Ensure the result is typed as Exercise[]
+  return exercises as unknown as Exercise[]; // Ensure the result is typed as Exercise[]
 }
 
 export default async function CalendarPage(props: {
@@ -33,11 +35,11 @@ export default async function CalendarPage(props: {
   return (
     <div className="w-full max-w-3xl mx-auto p-4">
       <div className="flex flex-col gap-4">
-        <h1 className="text-2xl font-bold mb-4 text-center">Today&apos;s Exercises</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center">Daily Exercises</h1>
         <Menu menuItems={menuItems} />
         <DateNavigatorComponent />
         <ExerciseList exercises={exercises} />
       </div>
-    </div >
+    </div>
   );
 }

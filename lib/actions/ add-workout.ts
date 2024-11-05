@@ -22,13 +22,14 @@ export default async function addWorkout(formData: FormData) {
   // Determine timespan based on exerciseId
   let timespan;
   if (exerciseId === "8001") {
-    timespan = 450;
+    timespan = 450; // 7.5 min for plank
   } else if (exerciseId === "9001") {
-    timespan = 210;
+    timespan = 210; // 3.5 min for stretching
+  } else if (exerciseId === "9005") {
+    timespan = 900; //15 min for meditation
   } else {
     timespan = 0;
   }
-
   console.log(
     `Inserting new workout record ${exerciseId}: DateTime - ${workoutDateTime} Span - ${timespan} sec.`,
   );

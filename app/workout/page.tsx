@@ -1,8 +1,4 @@
-import {
-  Dumbbell,
-  Home,
-  Calendar,
-} from "lucide-react";
+import { Dumbbell, Home, Calendar, Brain } from "lucide-react";
 import Menu from "@/components/menu";
 
 export default function WorkoutPage() {
@@ -16,6 +12,11 @@ export default function WorkoutPage() {
       name: "Strechting",
       icon: Calendar,
       href: "/workout/add-workout/9001",
+    },
+    {
+      name: "Meditation",
+      icon: Brain,
+      href: "/workout/add-workout/9005",
     },
     { name: "Home", icon: Home, href: "/" },
   ];
