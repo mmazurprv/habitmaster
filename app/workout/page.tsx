@@ -1,4 +1,11 @@
-import { Dumbbell, Home, Calendar, Brain } from "lucide-react";
+import {
+  Dumbbell,
+  Home,
+  Calendar,
+  Brain,
+  Languages,
+  ShowerHead,
+} from "lucide-react";
 import Menu from "@/components/menu";
 
 export default function WorkoutPage() {
@@ -17,6 +24,16 @@ export default function WorkoutPage() {
       name: "Meditation",
       icon: Brain,
       href: "/workout/add-workout/9005",
+    },
+    {
+      name: "Cold water",
+      icon: ShowerHead,
+      href: "/workout/add-workout/9105",
+    },
+    {
+      name: "English reading",
+      icon: Languages,
+      href: "/workout/add-workout/9800",
     },
     { name: "Home", icon: Home, href: "/" },
   ];

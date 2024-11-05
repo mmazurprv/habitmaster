@@ -7,6 +7,8 @@ export default function ExerciseList({ exercises }: { exercises: Exercise[] }) {
       8001: "Plank",
       9001: "Leg stretch",
       9005: "Meditation",
+      9800: "English reading",
+      9105: "Cold water",
     };
     return titles[exid] || "Other";
   };
