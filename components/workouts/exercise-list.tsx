@@ -65,7 +65,7 @@ export default function ExerciseList({ exercises }: { exercises: Exercise[] }) {
           )}
           {exercise.timespan != null && exercise.timespan > 0 && (
             <p>
-              <strong>Timespan:</strong> {exercise.timespan} sec
+              <strong>Duration:</strong> {exercise.timespan} sec
             </p>
           )}
           {exercise.goalpoints != null && exercise.goalpoints > 0 && (
