@@ -5,6 +5,7 @@ import {
   Brain,
   Languages,
   ShowerHead,
+  Music,
 } from "lucide-react";
 import Menu from "@/components/menu";
 
@@ -31,10 +32,11 @@ export default function WorkoutPage() {
       href: "/workout/add-workout/9105",
     },
     {
-      name: "Reading",
+      name: "Reading en",
       icon: Languages,
       href: "/workout/add-workout/9800",
     },
+    { name: "Violin", icon: Music, href: "/workout/add-workout/500" },
     { name: "Home", icon: Home, href: "/" },
   ];
 

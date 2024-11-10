@@ -39,18 +39,18 @@ export default async function addWorkout(formData: FormData) {
   );
 
   try {
-    await client`INSERT INTO tasks (
+    await client`INSERT INTO task (
       cif,
       date,
-      exid,
+      exercise_id,
       weight,
       distance,
       repeats,
-      timespan,
-      subprojectno,
-      goalno,
-      goalpoints,
-      goalvalue,
+      time_span,
+      subproject,
+      goal_id,
+      goal_points,
+      goal_value,
       remarks,
       quality
     ) VALUES (

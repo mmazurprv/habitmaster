@@ -1,16 +1,17 @@
 import { Exercise } from "@/lib/types";
 
 export default function ExerciseList({ exercises }: { exercises: Exercise[] }) {
-  // Function to get exercise name based on exid
-  const ExerciseTitle = (exid: number): string => {
+  // Function to get exercise name based on exercise_id exid
+  const ExerciseTitle = (exercise_id: number): string => {
     const titles: { [key: number]: string } = {
       8001: "Plank",
       9001: "Leg stretch",
       9005: "Meditation",
       9800: "English reading",
       9105: "Cold water",
+      500: "Violin",
     };
-    return titles[exid] || "Other";
+    return titles[exercise_id] || "Other";
   };
 
   if (exercises.length === 0) {
@@ -24,9 +25,9 @@ export default function ExerciseList({ exercises }: { exercises: Exercise[] }) {
   return (
     <div className="space-y-4">
       {exercises.map((exercise) => (
-        <div key={exercise.seriaid} className="p-4 border rounded-lg shadow-sm">
+        <div key={exercise.task_id} className="p-4 border rounded-lg shadow-sm">
           <h2 className="text-lg font-semibold">
-            {ExerciseTitle(Number(exercise.exid))}
+            {ExerciseTitle(Number(exercise.exercise_id))}
           </h2>
           <p>
             <strong>Id:</strong> {exercise.seriaid}

@@ -9,11 +9,9 @@ import { DateNavigatorComponent } from "@/components/date-navigator";
 async function getExercisesForDay(date: string): Promise<Exercise[]> {
   const exercises = await client`
     SELECT *
-    FROM tasks
+    FROM task
     WHERE date::DATE = ${date}::DATE
   `;
-  return exercises as unknown as Exercise[]; // Ensure the result is typed as Exercise[]
-  return exercises as unknown as Exercise[]; // Ensure the result is typed as Exercise[]
   return exercises as unknown as Exercise[]; // Ensure the result is typed as Exercise[]
 }
 
